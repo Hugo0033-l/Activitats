@@ -15,7 +15,6 @@ def keprekar(case:str)->int:
             res = b-a
         if tries > 7:
             break
-
         if res != 6174:
             tries += 1
             case = str(res)
@@ -24,15 +23,10 @@ def keprekar(case:str)->int:
         else:
             tries += 1
             break
-
     return tries
-    
-
 num = []
 casos = int(input())
 for i in range(casos):
     num.append(input())
-
 for i in num:
-    a = keprekar(i)
-    print(a)
+    print(keprekar(i))
