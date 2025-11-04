@@ -7,10 +7,12 @@ efectivitat = 1
 
 tipus = ["aigua", "foc", "planta", "elèctric"]
 
-taula_efectivitat = [[0.5, 2, 0.5, 1],
-[0.5, 0.5, 2, 1],
-[2, 0.5 , 0.5, 1],
-[2, 1, 0.5, 0.5]]
+taula_efectivitat = [
+    [0.5, 2, 0.5, 1],
+    [0.5, 0.5, 2, 1],
+    [2, 0.5 , 0.5, 1],
+    [2, 1, 0.5, 0.5]
+    ]
 
 while True:
     if atac < 0 or atac > 100 or defensa < 0 or defensa > 100 or tipus_atacant not in tipus or tipus_defensor not in tipus:
