@@ -1,3 +1,28 @@
+def iter_kaprekar(num:int):
+    if num == 6174:
+        return 0
+    
+    num_str = str(num).zfill(4)
+
+    if len(set(num_str)) == 1:
+        return 8
+    
+    iteracions = 0
+    actual = num
+
+    while actual != 6174:
+        num_str = str(actual).zfill(4)
+        ascendent = int("".join(sorted(num_str)))
+        descendent = int("".join(sorted(num_str, reverse=True)))
+
+        actual = descendent - ascendent
+        iteracions+=1
+
+        if iteracions > 7:
+            break
+
+    return iteracions
+
 def keprekar(case:str)->int:
     res = 0
     tries = 0
@@ -24,9 +49,10 @@ def keprekar(case:str)->int:
             tries += 1
             break
     return tries
+
 num = []
 casos = int(input())
 for i in range(casos):
     num.append(input())
 for i in num:
-    print(keprekar(i))
+    print(iter_kaprekar(i))
