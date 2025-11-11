@@ -1,9 +1,17 @@
-def read_mobile(linea, index):
+def read_mobile(lines, index):
     pi, di, pd, dd = lines[index]
     index += 1
-    blancetjat = True
+    balancejat = True
     if pi == 0:
-        read_mobile(lines, index)
+        pi, sub_balancejat, index = read_mobile(lines, index)
+        balancejat = balancejat and sub_balancejat
+    if pd == 0:
+        pd, sub_balancejat, index = read_mobile(lines, index)
+        balancejat = balancejat and sub_balancejat
+    if pi*di != pd*dd:
+        balancejat = False
+    pes_total = pi+pd
+    return pes_total, balancejat, index
 
 lines = []
 while True:
@@ -19,5 +27,8 @@ while True:
 
 index = 0
 while index < len(lines):
-    ...
-    #______ = read_mobile(lines,index)
+    pes_total, balancejat, index = read_mobile(lines,index)
+    if balancejat:
+        print("SI")
+    else:
+        print("NO")
