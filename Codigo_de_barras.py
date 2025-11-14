@@ -36,6 +36,8 @@ def comprovar_codigo(codigo:str)->str:
 num = []
 while True:
     r = input()
+    if not r:
+        continue
     if r != "0":
         num.append(r)
     else:
