@@ -32,7 +32,9 @@ while True:
     
     max_punts = max(punts.values())
 
-    guanyadors = list(filter(lambda parella: punts[parella] == max_punts, punts.keys()))
+    guanyadors = [parella for parella, punts in punts.items() if punts == max_punts]
+
+    #guanyadors = list(filter(lambda parella: punts[parella] == max_punts, punts.keys()))
 
     """
     guanyadors = []
@@ -54,6 +56,4 @@ while True:
             parella_guanyadora = parella
         elif punts == max_punts:
             parella_guanyadora = "EMPAT"
-    """
-
-    
+    """  
